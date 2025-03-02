@@ -19,5 +19,6 @@
 (require 'init-editing)
 (require 'init-ui)
 (require 'init-languages)
+(require 'init-translation)
 
 (setq backup-directory-alist '((".*" . "/tmp/")))     ;; 备份文件存放地址

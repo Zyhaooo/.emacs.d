@@ -15,7 +15,7 @@
 
 (use-package yasnippet
   :ensure t
-  :diminish 
+  :diminish
   :config
   (yas-global-mode 1)
   (yas-minor-mode 1))
@@ -24,9 +24,11 @@
   :ensure t
   :init
   ;; 启用全局模糊匹配（支持非连续字符）
-  (setq ido-enable-flex-matching t
+  (setq ido-enable-flex-matching nil
         ido-use-virtual-buffers t    ; 显示最近关闭的虚拟缓冲区
         ido-auto-merge-work-directories-length -1) ; 无限级目录缓存
+  
+  (setq ido-case-fold nil)
 
   ;; 智能路径预测（参考网页7的路径缓存机制）
   (setq ido-use-filename-at-point 'guess
@@ -47,12 +49,11 @@
         ido-vertical-define-keys 'C-n-C-p-up-down-left-right)) ; 全键盘导航
 
 ;; ========== 模糊算法升级 ==========
-(use-package flx-ido                 ; 高性能模糊匹配（网页4/7推荐）
+(use-package flx-ido
   :ensure t
   :after ido
   :config
-  (flx-ido-mode 1)
-  (setq flx-ido-threshold 3))        ; 最小匹配字符数
+  (flx-ido-mode 1))
 
 ;; ========== 命令补全扩展 ==========
 (use-package smex                    ; M-x命令智能补全（网页5/6）

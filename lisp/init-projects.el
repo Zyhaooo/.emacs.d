@@ -13,13 +13,22 @@
   (setq projectile-globally-ignored-files
         '("TAGS" "*.class" "*.pyc" "*.o" "*.so" "*.dll"))
 
-  (setq projectile-sort-order 'recentf)                                            ;; 按最近访问排序文件
+  (setq projectile-indexing-method 'alien)                                         ;; 使用外部工具加速索引
+  (setq projectile-sort-order 'recently-active)                                    ;; 按最近访问排序文件
   (setq projectile-find-dir-includes-top-level t)
-  (setq projectile-completion-system 'ido)
+  (setq projectile-find-file-in-known-projects-automatically t)
+  ;;(setq projectile-completion-system 'ido)
   (setq projectile-cleanup-known-projects nil)                                     ;; 清理已删除目录
-  (setq projectile-sort-order 'recently-active)                                    ;; 按最近活跃的缓冲区和最近打开的文件排序
 
   (global-set-key (kbd "C-x p") 'projectile-command-map)
+
+  (use-package ripgrep :ensure t)
+
+  ;; (use-package counsel-projectile
+  ;;   :ensure t
+  ;;   :config
+  ;;   (counsel-projectile-mode 1))
+  
   (projectile-mode t)
   )
 
