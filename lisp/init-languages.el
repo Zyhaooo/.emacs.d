@@ -17,6 +17,13 @@
                            (analyses . ((unusedparams . t)
                                         (unusedwrite . t)
                                         (nilness . t)))
+                           (hints . ((assignVariableTypes . t)
+                                     (compositeLiteralFields . t)
+                                     (compositeLiteralTypes . t)
+                                     (constantValues . t)
+                                     (functionTypeParameters . t)
+                                     (parameterNames . t)
+                                     (rangeVariableTypes . t)))
                            (usePlaceholders . t)                  ;; 函数占位符
                            (hoverKind . "SynopsisDocumentation")
                            (matcher . "Fuzzy")

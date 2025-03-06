@@ -2,12 +2,17 @@
   :hook
   (go-mode . eglot-ensure)                                        ;; golang
   (c-mode . eglot-ensure)                                         ;; c
+  (c++-mode . eglot-ensure)                                       ;; c++
   :config
   (setq eglot-autoshutdown t)
   (setq eglot-send-changes-idle-time 0.1)
   (add-to-list 'eglot-server-programs
-               '((c-mode c-ts-mode c++-mode c++-ts-mode)
-                 . ("ccls" "--init" "{\"compilationDatabaseDirectory\": \"build\"}"))))
+               '((c-mode c-ts-mode)
+                 . ("ccls")))
+  (add-to-list 'eglot-server-programs
+               '((c++-mode c++-ts-mode)
+                 . ("clangd"))))
+
 
 (use-package eldoc
   :ensure t
