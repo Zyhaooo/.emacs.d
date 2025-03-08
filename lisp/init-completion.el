@@ -79,4 +79,17 @@
 (define-key ido-file-completion-map (kbd "C-j") 'ido-next-work-directory) ; 快速切换工作目录
 (define-key ido-common-completion-map (kbd "M-DEL") 'ido-delete-backward-updir) ; 退格键返回上级目录
 
+;; 使用 use-package 管理插件
+(use-package fancy-compilation
+  :ensure t
+  :after compile
+  :config
+  ;; 启用 fancy-compilation 模式
+  (fancy-compilation-mode 1)
+  
+  ;; 自定义编译窗口行为
+  (setq fancy-compilation-override-existing t)     ; 覆盖已有的编译缓冲区
+  (setq compilation-scroll-output t)
+  )
+
 (provide 'init-completion)
