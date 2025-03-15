@@ -53,4 +53,21 @@
   (add-hook 'c-mode-common-hook (lambda ()
                                   (add-hook 'before-save-hook nil t))))
 
+(use-package rust-mode
+  :ensure t
+  :mode ("\\.rs\\'" . rust-mode)
+  :config
+  (setq rust-format-on-save t)
+  (add-hook 'rust-mode-hook
+          (lambda () (setq indent-tabs-mode nil)))
+  ;; (add-hook 'rust-mode-hook
+  ;;           (lambda () (prettify-symbols-mode)))
+  )
+
+(use-package cargo
+  :ensure t
+  :diminish
+  :hook (rust-mode . cargo-minor-mode))
+
 (provide 'init-languages)
+;;; init-languages.el ends here

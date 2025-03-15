@@ -2,9 +2,12 @@
   :ensure t
   :diminish
   :hook (after-init . global-company-mode)
+  :hook (prog-mode . company-mode)
   :bind (:map company-active-map
 	      ("<tab>" . company-complete-common-or-cycle)
 	      ("TAB" . company-complete-common-or-cycle))
+  :config
+  (advice-add 'company-detect-icons-margin :override #'company-text-icons-margin)
   :custom
   (company-idle-delay 0.1)
   (company-minimum-prefix-length 1)

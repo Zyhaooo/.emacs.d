@@ -3,6 +3,7 @@
   (go-mode . eglot-ensure)                                        ;; golang
   (c-mode . eglot-ensure)                                         ;; c
   (c++-mode . eglot-ensure)                                       ;; c++
+  (rust-mode . eglot-ensure)                                      ;; rust
   :config
   (setq eglot-autoshutdown t)
   (setq eglot-send-changes-idle-time 0.1)
@@ -11,7 +12,11 @@
                  . ("ccls")))
   (add-to-list 'eglot-server-programs
                '((c++-mode c++-ts-mode)
-                 . ("clangd"))))
+                 . ("clangd")))
+  (add-to-list 'eglot-server-programs
+               '((rust-mode rust-ts-mode)
+                 . ("rust-analyzer")))
+  )
 
 
 (use-package eldoc
